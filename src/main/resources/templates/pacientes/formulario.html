@@ -14,12 +14,12 @@
         <main class="content">
             <div class="container-fluid p-0">
                 <h1 class="h3 mb-3">
-                    <strong th:text="${usuario.id == null ? 'Nuevo Usuario' : 'Editar Usuario'}">Formulario</strong>
+                    <strong th:text="${paciente.id == null ? 'Nuevo Usuario' : 'Editar Usuario'}">Formulario</strong>
                 </h1>
 
                 <div class="card">
                     <div class="card-body">
-                        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+                        <form th:action="@{/pacientes/guardar}" th:object="${paciente}" method="post">
                             <input type="hidden" th:field="*{id}"/>
 
                             <div class="mb-3">

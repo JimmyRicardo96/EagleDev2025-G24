@@ -98,4 +98,5 @@ public class PacienteController {
         pacienteService.eliminarPaciente(id);
         return ResponseEntity.noContent().build();
     }
+
 }
