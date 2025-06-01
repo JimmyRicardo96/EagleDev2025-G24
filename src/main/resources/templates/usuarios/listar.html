@@ -1,0 +1,66 @@
+<!-- templates/usuarios/listar.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="index :: head"></head>
+
+<body>
+<div class="wrapper">
+    <div th:replace="index :: sidebar"></div>
+
+    <div class="main">
+        <div th:replace="index :: header"></div>
+
+        <main class="content">
+            <div class="container-fluid p-0">
+                <h1 class="h3 mb-3"><strong>Gestión de Usuarios</strong></h1>
+
+                <div class="mb-3">
+                    <a class="btn btn-primary" th:href="@{/usuarios/nuevo}">
+                        <i class="bi bi-plus-circle"></i> Nuevo Usuario
+                    </a>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Usuario</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="usuario : ${usuarios}">
+                                <td th:text="${usuario.idUsuario}">1</td>
+                                <td th:text="${usuario.username}">admin</td>
+                                <td th:text="${usuario.role}">ADMIN</td>
+                                <td>
+                                    <span th:text="${usuario.enabled ? 'Activo' : 'Inactivo'}"
+                                          th:classappend="${usuario.enabled} ? 'badge bg-success' : 'badge bg-danger'"></span>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/usuarios/editar/' + ${usuario.idUsuario}}"
+                                       class="btn btn-sm btn-warning">Editar</a>
+                                    <a th:href="@{'/usuarios/eliminar/' + ${usuario.idUsuario}}"
+                                       class="btn btn-sm btn-danger"
+                                       onclick="return confirm('¿Deseas eliminar este usuario?')">Eliminar</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div th:replace="index :: footer"></div>
+    </div>
+</div>
+
+<script th:src="@{/js/app.js}"></script>
+</body>
+</html>
