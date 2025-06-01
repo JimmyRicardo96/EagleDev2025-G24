@@ -97,4 +97,5 @@ public class PacienteController {
         pacienteService.eliminarPaciente(id);
         return "redirect:/pacientes";
     }
+
 }
