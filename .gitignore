@@ -38,5 +38,8 @@ build/
 # data/
 
 venv/
-_pycache_/
+streamlit-app/venv/
+*.pyd
+*.dll
+__pycache__/
 *.pyc
