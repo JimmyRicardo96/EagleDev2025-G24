@@ -36,3 +36,10 @@ build/
 # *.mv.db
 # *.trace.db
 # data/
+# Ignorar entornos virtuales
+venv/
+streamlit-app/venv/
+
+# Archivos grandes
+*.pyd
+*.dll
