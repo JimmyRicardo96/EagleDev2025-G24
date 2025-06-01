@@ -31,8 +31,3 @@ build/
 
 ### VS Code ###
 .vscode/
-
-# Ignorar archivos de base de datos H2
-*.mv.db
-*.trace.db
-data/
