@@ -36,3 +36,7 @@ build/
 # *.mv.db
 # *.trace.db
 # data/
+
+venv/
+_pycache_/
+*.pyc
