@@ -36,10 +36,14 @@ build/
 # *.mv.db
 # *.trace.db
 # data/
-
+# Entorno virtual
 venv/
 streamlit-app/venv/
-*.pyd
-*.dll
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Archivos grandes
+*.pyd
+*.dll
