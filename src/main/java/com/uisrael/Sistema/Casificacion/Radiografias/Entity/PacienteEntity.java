@@ -2,6 +2,8 @@ package com.uisrael.Sistema.Casificacion.Radiografias.Entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
+import java.util.Date;
 
 @Data
 @Entity
@@ -18,7 +20,10 @@ public class PacienteEntity {
     private String direccion;
     private String rutaImagen;
     private String prediccion;
-    private String fecha;
+    // En la entidad PacienteEntity
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    private Date fecha;
 
     public Integer getId() {
         return id;
@@ -76,11 +81,11 @@ public class PacienteEntity {
         this.prediccion = prediccion;
     }
 
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 }
