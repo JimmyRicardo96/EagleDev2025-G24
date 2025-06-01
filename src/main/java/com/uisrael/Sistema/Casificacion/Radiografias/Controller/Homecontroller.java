@@ -29,4 +29,10 @@ public class Homecontroller {
     public String indexPage() {
         return "index";
     }
+
+    @GetMapping("/streamlit")
+    public String mostrarClasificador() {
+        return "streamlit"; // o "clasificador" si decides cambiar el nombre del HTML
+    }
+
 }
