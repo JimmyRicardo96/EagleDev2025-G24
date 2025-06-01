@@ -1,4 +1,6 @@
 # 🦅 EagleDev2025-G24 - Clasificación de Radiografías con IA
+## 🎥 Video de presentación del proyecto
+🔗 [Haz clic aquí para ver el video](https://drive.google.com/file/d/1WRb0ZqL3WHZprMVSXo-Awkn10Tapxeeh/view?usp=sharing)
 
 Este proyecto combina el poder del backend en **Spring Boot**, la ejecución de modelos de **Machine Learning** con **FastAPI**, y una interfaz de usuario moderna con **Streamlit**, para clasificar imágenes médicas (radiografías) en cuatro categorías:
 
