@@ -1,6 +1,5 @@
-<!-- templates/usuarios/formulario.html -->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="index :: head"></head>
 
@@ -14,40 +13,51 @@
         <main class="content">
             <div class="container-fluid p-0">
                 <h1 class="h3 mb-3">
-                    <strong th:text="${paciente.id == null ? 'Nuevo Usuario' : 'Editar Usuario'}">Formulario</strong>
+                    <strong th:text="${paciente.id == null ? 'Nuevo Paciente' : 'Editar Paciente'}">Formulario</strong>
                 </h1>
 
                 <div class="card">
                     <div class="card-body">
-                        <form th:action="@{/pacientes/guardar}" th:object="${paciente}" method="post">
+                        <form th:action="@{/pacientes/guardar}" th:object="${paciente}" method="post" enctype="multipart/form-data">
                             <input type="hidden" th:field="*{id}"/>
 
                             <div class="mb-3">
-                                <label class="form-label">Usuario</label>
-                                <input type="text" class="form-control" th:field="*{username}" required/>
+                                <label class="form-label">Identificación</label>
+                                <input type="text" class="form-control" th:field="*{identificacion}" required/>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Contraseña</label>
-                                <input type="password" class="form-control" th:field="*{password}"
-                                       th:placeholder="${usuario.id != null ? 'Dejar en blanco para no cambiarla' : ''}"/>
+                                <label class="form-label">Nombres</label>
+                                <input type="text" class="form-control" th:field="*{nombres}" required/>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label">Rol</label>
-                                <select class="form-select" th:field="*{rol}">
-                                    <option value="ADMIN">ADMIN</option>
-                                    <option value="USER">USER</option>
-                                </select>
+                                <label class="form-label">Apellidos</label>
+                                <input type="text" class="form-control" th:field="*{apellidos}" required/>
                             </div>
 
-                            <div class="form-check mb-3">
-                                <input class="form-check-input" type="checkbox" th:field="*{enabled}"/>
-                                <label class="form-check-label">Activo</label>
+                            <div class="mb-3">
+                                <label class="form-label">Dirección</label>
+                                <input type="text" class="form-control" th:field="*{direccion}"/>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Fecha</label>
+                                <input type="date" class="form-control" th:field="*{fecha}"/>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Predicción</label>
+                                <input type="text" class="form-control" th:field="*{prediccion}" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Ruta de Imagen</label>
+                                <input type="file" class="form-control" name="imagen" />
                             </div>
 
                             <button type="submit" class="btn btn-success">Guardar</button>
-                            <a th:href="@{/usuarios}" class="btn btn-secondary">Cancelar</a>
+                            <a th:href="@{/pacientes}" class="btn btn-secondary">Cancelar</a>
                         </form>
                     </div>
                 </div>
