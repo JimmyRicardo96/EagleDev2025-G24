@@ -44,6 +44,6 @@ streamlit-app/venv/
 __pycache__/
 *.pyc
 
-# Archivos grandes
+# Archivos grandes innecesarios
 *.pyd
 *.dll
