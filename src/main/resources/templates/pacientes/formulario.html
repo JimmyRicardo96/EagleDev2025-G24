@@ -48,13 +48,36 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Predicción</label>
-                                <input type="text" class="form-control" th:field="*{prediccion}" />
+                                <input type="text" class="form-control" th:field="*{prediccion}" readonly/>
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Ruta de Imagen</label>
-                                <input type="file" class="form-control" name="imagen" />
+                                <input type="file" class="form-control" name="imagen" onchange="enviarYPredecir(this)">
                             </div>
+                            <script>
+                                function enviarYPredecir(input) {
+                                    const file = input.files[0];
+                                    if (!file) return;
+
+                                    const formData = new FormData();
+                                    formData.append("file", file);
+
+                                    fetch("http://localhost:8000/predict", {
+                                        method: "POST",
+                                        body: formData
+                                    })
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            document.querySelector('input[name="prediccion"]').value =
+                                                data.label + " (" + data.confidence + "%)";
+                                        })
+                                        .catch(err => {
+                                            console.error("Error al predecir:", err);
+                                            alert("No se pudo procesar la imagen.");
+                                        });
+                                }
+                            </script>
 
                             <button type="submit" class="btn btn-success">Guardar</button>
                             <a th:href="@{/pacientes}" class="btn btn-secondary">Cancelar</a>

@@ -14,7 +14,7 @@ public class DataInitializer {
             if (usuarioRepository.findByUsername("admin") == null) {
                 UsuarioEntity admin = new UsuarioEntity();
                 admin.setUsername("admin");
-                admin.setPassword("$2a$12$lSZrrbDGayRNuJ1CpWwfAe./bdOcikhEESkB4MQXu8luguETM9kaq"); // contraseña: admin
+                admin.setPassword("$2a$12$cV.G6MddyyPsM91RUiRDH.tSZJoSzhKrPv1EZ9ppUMtC8VFih1oCO"); // contraseña: admin
                 admin.setRol("ADMIN");
                 admin.setEnabled(true);
                 usuarioRepository.save(admin);
